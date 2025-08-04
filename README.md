@@ -65,29 +65,41 @@ $> a [Enter]
 
 # Example
 
-```c
-struct tray tray = {
-    .icon = "icon.png",
-    .menu = (struct tray_menu[]){{"Toggle me", 0, 0, toggle_cb, NULL},
-                                 {"-", 0, 0, NULL, NULL},
-                                 {"Quit", 0, 0, quit_cb, NULL},
-                                 {NULL, 0, 0, NULL, NULL}},
+```c++
+void quit_cb(struct tray_menu* item);
+
+static struct tray_menu menu_items[] = {
+    {"Quit", 0, 0, quit_cb, nullptr},
+    {nullptr, 0, 0, nullptr, nullptr}
 };
 
-void toggle_cb(struct tray_menu *item) {
-	item->checked = !item->checked;
-	tray_update(&tray);
-}
+static struct tray tray = {
+    "C:\\Users\\path\\...\\icon.ico",
+    menu_items
+};
 
-void quit_cb(struct tray_menu *item) {
-  tray_exit();
+static void quit_cb(struct tray_menu* item) {
+    (void)item;
+    should_exit = true;
+    if (g_assistant) {
+        cout << "\nEnding processing..." << endl;
+        g_assistant->stop();
+    }
+    tray_exit();
 }
 
 ...
 
-tray_init(&tray);
-while (tray_loop(1) == 0);
-tray_exit();
+int main() {
+    if (tray_init(&tray) < 0) {
+    	cerr << "Failed to initialize tray icon" << endl;
+        return -1;
+    }
+
+    while (!should_exit && tray_loop(1) == 0) {}
+    tray_exit();
+    return 0;
+}
 
 ```
 
@@ -125,18 +137,6 @@ All functions are meant to be called from the UI thread only.
 
 Menu arrays must be terminated with a NULL item, e.g. the last item in the
 array must have text field set to NULL.
-
-## Roadmap
-
-* [x] Cross-platform tray icon
-* [x] Cross-platform tray popup menu
-* [x] Separators in the menu
-* [x] Disabled/enabled menu items
-* [x] Checked/unchecked menu items
-* [x] Nested menus
-* [ ] Icons for menu items
-* [x] Rewrite ObjC code in C using ObjC Runtime (now ObjC code breaks many linters and static analyzers)
-* [ ] Call GTK code using dlopen/dlsym (to make binaries run safely if Gtk libraries are not available)
 
 ## License
 
