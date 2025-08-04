@@ -14,7 +14,7 @@ There is also a stub implementation that returns errors on attempt to create a t
 
 # Setup
 
-Before you can compile `tray`, you'll need to add an environment definition before the line where you include `tray.h`. 
+Before you can compile `tray`, you'll need to add an environment definition before the line where you include `tray.hpp`. 
 
 **For Windows:**
 ```c
@@ -45,22 +45,6 @@ Before you can compile `tray`, you'll need to add an environment definition befo
 
 #include "tray.hpp"
 ...
-```
-
-# Demo
-
-The included example `.c` files can be compiled based on your environment.
-
-For example, to compile and run the program on Windows: 
-
-```shell
-$> gcc example_windows.c [Enter]
-``` 
-
-This will compile and build `a.out`. To run it: 
-
-```
-$> a [Enter]
 ```
 
 # Example
