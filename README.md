@@ -1,6 +1,6 @@
 Tray
 ----
-## Warning! We have not verified Mac or Linux compatibility.
+## Warning! We have not verified Mac and Linux compatibility.
 
 Cross-platform, single header, super tiny C99 implementation of a system tray icon with a popup menu.
 
