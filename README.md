@@ -1,5 +1,6 @@
-Tray
+# Tray
 ----
+## Warning! We have not verified Mac or Linux compatibility.
 
 Cross-platform, single header, super tiny C99 implementation of a system tray icon with a popup menu.
 
@@ -19,8 +20,6 @@ Before you can compile `tray`, you'll need to add an environment definition befo
 ```c
 #include <stdio.h>
 #include <string.h>
-
-#define TRAY_WINAPI 1
 
 #include "tray.h"
 ...
