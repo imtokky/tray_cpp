@@ -151,7 +151,6 @@ struct tray_menu {
 
 ### Windows ✅
 - **Best**: `.ico` files (16x16, 32x32 pixels)
-- **Also works**: `.png`, `.bmp`
 - **System icons**: `"shell32.dll"` for default system icon
 - **Example**: `"C:\\path\\to\\icon.ico"` or `"./icon.ico"`
 
