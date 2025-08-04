@@ -1,4 +1,4 @@
-# Tray
+Tray
 ----
 ## Warning! We have not verified Mac or Linux compatibility.
 
