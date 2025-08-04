@@ -21,7 +21,7 @@ Before you can compile `tray`, you'll need to add an environment definition befo
 #include <stdio.h>
 #include <string.h>
 
-#include "tray.h"
+#include "tray.hpp"
 ...
 ```
 
@@ -32,7 +32,7 @@ Before you can compile `tray`, you'll need to add an environment definition befo
 
 #define TRAY_APPINDICATOR 1
 
-#include "tray.h"
+#include "tray.hpp"
 ...
 ```
 
@@ -43,7 +43,7 @@ Before you can compile `tray`, you'll need to add an environment definition befo
 
 #define TRAY_APPKIT 1
 
-#include "tray.h"
+#include "tray.hpp"
 ...
 ```
 
